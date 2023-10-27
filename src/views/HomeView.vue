@@ -15,16 +15,13 @@
             <h1 v-else class="tooltip">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                width="32"
+                height="32"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="headersvg"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  fill="currentColor"
+                  d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
                 />
               </svg>
             </h1>
