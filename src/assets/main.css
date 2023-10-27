@@ -1,0 +1,187 @@
+
+@tailwind base;
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--black) var(--primary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+  
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 14px;
+  border: 3px solid var(--primary);
+}
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-header: transparent;
+  --primary: rgb(211, 205, 205);
+  --secondary: rgb(13, 164, 116);
+} 
+
+html {
+  text: black;
+  overflow: scroll;
+  scroll-behavior: smooth;
+} 
+
+.navbar {
+  @apply flex flex-col items-center flex-nowrap 
+  justify-between gap-5 w-full pb-20 
+  h-fit
+
+}
+
+.headersvg {
+  @apply object-bottom w-8 h-8 text-black 
+}
+
+.headerbtn {
+  @apply flex justify-start w-fit font-semibold 
+  hover:bg-opacity-40 rounded-md mt-8 space-x-2 ml-6  
+}
+
+.dropdown {
+  @apply block px-4 py-2 list-disc capitalize 
+hover:text-zinc-600 hover:cursor-pointer
+  
+}
+.bar {
+  @apply flex w-full place-self-center justify-center 
+  bg-transparent rounded-3xl border-red-50 border-2 ml-8 mt-5
+   
+}
+
+.tooltip {
+  @apply flex relative bg-transparent text-black 
+  text-[14px] font-bold object-center 
+}
+
+.list {
+  @apply text-black hover:text-zinc-200 hover:text-xl
+}
+
+/*order */
+.shoppings {
+  @apply  w-[240px] h-[310px] tablet:w-[300px] 
+  tablet:h-[400px] desktop:w-[400px] 
+  desktop:h-[570px] bg-white 
+  rounded-md relative z-10 justify-self-end top-14 right-8 
+  grid py-4 appearance-none  overflow-auto border-2 
+  border-[#363636]
+}
+.chosenitems {
+  @apply grid bg-transparent w-full h-full
+  place-self-center border-solid justify-items-center
+  border-b-2 border-black rounded-md overflow-auto
+}
+
+.fav {
+  @apply w-[240px] h-[280px] tablet:w-[300px] tablet:h-[350px] desktop:w-[400px] 
+  desktop:h-[520px] bg-white rounded-md relative
+  z-10 justify-self-end top-14 right-8 grid pb-2 
+  overscroll-none appearance-none border-2 
+  border-[#363636]
+}
+
+.favitem {
+  @apply  bg-white h-[230px] tablet:w-[270px] 
+  tablet:h-[300px] 
+  desktop:w-[370px] desktop:h-[470px] 
+  place-self-end self-start border-solid 
+  border-b-2 border-black overflow-auto
+}
+
+.imgshop {
+  @apply w-full h-full border-solid 
+  border-2  rounded-lg relative hover:shadow-xl
+}
+
+.costs {
+  @apply h-max sticky flex items-center 
+  justify-center w-full px-4 mt-8 font-semibold 
+   gap-8 mb-4
+}
+
+.btn {
+  @apply border-2 rounded-lg border-solid 
+  w-fit h-fit flex p-1 text-black 
+  hover:border-black self-center 
+  text-xs tablet:text-base font-semibold 
+}
+
+/*signup form*/
+form {
+  @apply 
+  bg-white text-left h-max
+  px-[50px] border-none  w-full
+}
+label {
+  @apply
+  text-black inline-block
+  mt-[25px] mb-[15px] text-[14px] 
+  font-semibold
+}
+input, select {
+  @apply block
+  pt-[10px] pr-[6px]
+  w-[100%] border-b-[1px] border-solid 
+  border-slate-200 outline-none text-[14px]
+}
+
+.submit {
+  @apply
+  text-center  grid
+}
+.error {
+  @apply
+  text-red-400
+  mt-[10px]
+  font-bold
+}
+
+.backdrop {
+   @apply top-0 fixed bg-gray-500 bg-opacity-50
+   w-full h-max grid justify-items-stretch 
+}
+
+.invbackdrop {
+  @apply top-0 fixed w-full h-full grid 
+  justify-items-stretch bg-gray-500 bg-opacity-50  z-50
+}
+
+.modal {
+  @apply w-screen laptop:w-[850px] desktop:w-[1100px] h-screen
+  p-1 rounded-lg object-center z-10 mt-8
+  bg-[#F4F9FF] relative pt-3 place-self-center
+  overflow-y-scroll top-4 appearance-none overscroll-contain
+}
+
+.items { /*div that contains the items*/
+    @apply grid px-4 h-fit
+    grid-cols-1 mobile:grid-cols-2 tablet:grid-cols-3 
+    grid-rows-2 gap-y-5 gap-x-3 auto-cols-min 
+    justify-items-stretch desktop:gap-y-16 pt-5
+     
+}
+
+.exitbtn {
+    @apply flex w-fit rounded-3xl p-2 
+    hover:text-red-600 hover:bg-black hover:bg-opacity-5   
+}
+
+.positionexitbtn {
+    @apply w-screen laptop:w-[800px] desktop:w-[1000px] 
+    grid place-items-end absolute top-0 right-1
+}
