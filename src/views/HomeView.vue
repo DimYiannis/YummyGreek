@@ -3,7 +3,6 @@
     <div
       class="grid justify-items-center gap-4 w-full mt-2 bg-stone-200 bg-opacity-60 rounded-t-xl"
     >
-      
       <div class="flex relative self-center w-fit text-center">
         <div
           @mouseover="showBagtip = true"
@@ -34,19 +33,18 @@
 
         <!--Filter bar-->
         <div class="bar">
-
           <!--drop down categories-->
           <div class="place-self-center w-fit h-fit">
             <div class="grid gap-20 m-1">
               <div
-                class="flex flex-col mobile:flex-row justify-center 
-                mt-2 gap-8">
-
+                class="flex flex-col mobile:flex-row justify-center mt-2 gap-8"
+              >
                 <div class="grid relative">
-                  <div class="filtertitleblock">
-                    <h1 @click="showDietary = !showDietary" class="filtertitle">
-                      Dietary Preferences
-                    </h1>
+                  <div
+                    class="filtertitleblock"
+                    @click="showDietary = !showDietary"
+                  >
+                    <h1 class="filtertitle">Dietary Preferences</h1>
                     <svg
                       class="w-2.5 h-2.5 ml-2.5 translate-y-2"
                       aria-hidden="true"
@@ -81,10 +79,8 @@
                 </div>
 
                 <div class="grid relative">
-                  <div class="filtertitleblock">
-                    <h1 @click="showPrice = !showPrice" class="filtertitle">
-                      Price Range
-                    </h1>
+                  <div class="filtertitleblock" @click="showPrice = !showPrice">
+                    <h1 class="filtertitle">Price Range</h1>
                     <svg
                       class="w-2.5 h-2.5 ml-2.5 translate-y-2"
                       aria-hidden="true"
@@ -111,11 +107,12 @@
                   </ul>
                 </div>
 
-                <div class="grid relative">
-                  <div class="filtertitleblock">
-                    <h1 @click="showAllergens = !showAllergens" class="filtertitle">
-                     Allergens
-                    </h1>
+                <div class="grid relative justify-items-center">
+                  <div
+                    class="filtertitleblock"
+                    @click="showAllergens = !showAllergens"
+                  >
+                    <h1 class="filtertitle">Allergens</h1>
                     <svg
                       class="w-2.5 h-2.5 ml-2.5 translate-y-2"
                       aria-hidden="true"

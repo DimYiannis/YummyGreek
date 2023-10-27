@@ -9,7 +9,7 @@
           text-xl">{{ this.receivedData.name }}</div>
           <img :src="this.receivedData.image" 
           class="h-full w-full rounded-3xl transition ease-in-out delay-150 
-          hover:-translate-y-1 hover:scale-110 duration-700">
+          hover:-translate-y-1 hover:scale-90 duration-700">
         </div>
       </div>
     

@@ -66,24 +66,25 @@ html {
 }
 
 .filtertitleblock {
-  @apply flex hover:-translate-y-2 justify-center
+  @apply flex justify-center px-3 rounded-xl border-2 border-white 
+  hover:cursor-pointer
+  h-fit w-fit hover:border-green-200
 }
 
 .filtertitle {
-  @apply hover:cursor-pointer h-fit 
+  @apply  h-fit 
   
 }
 
 .dropdown {
-  @apply block px-4 py-2 capitalize 
-hover:text-zinc-600 hover:cursor-pointer rounded-md 
-shadow-xl
-  
+  @apply block px-4 py-2 capitalize text-xs
+  hover:text-zinc-600 hover:cursor-pointer rounded-md 
+  justify-items-center grid
 }
 
 .list {
-  @apply text-black hover:text-zinc-200 hover:text-xl border-2 
-  border-gray-200 rounded-full bg-white
+  @apply text-black hover:bg-green-200 border-2 h-fit
+  border-gray-200 rounded-full bg-white px-2 w-fit
 }
 
 /*order */
@@ -131,7 +132,7 @@ shadow-xl
 .btn {
   @apply border-2 rounded-lg border-solid 
   w-fit h-fit flex p-1 text-black 
-  hover:border-black self-center 
+  hover:border-green-200 self-center 
   text-xs tablet:text-base font-semibold 
 }
 

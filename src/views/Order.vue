@@ -56,7 +56,7 @@
     
               <div class="flex  gap-1">
                 
-                <button class="btnmodal" @click="removeFromOrder(dish)">
+                <button class="hover:text-green-200" @click="removeFromOrder(dish)">
                   
                   <div v-if="dish.quantity==1">
                     <svg xmlns="http://www.w3.org/2000/svg" 
@@ -79,7 +79,7 @@
                 </button>
                 
                 <span>{{ dish.quantity }}</span>
-                <button  class="btnmodal" @click="addToOrder(dish)">
+                <button class="hover:text-green-200" @click="addToOrder(dish)">
                   <svg xmlns="http://www.w3.org/2000/svg" 
                   width="20" height="20" viewBox="0 0 24 24">
                   <path fill="currentColor" d="M12 19q-.425 0-.713-.288T11 
