@@ -52,14 +52,11 @@ html {
   hover:bg-opacity-40 rounded-md mt-8 space-x-2 ml-6  
 }
 
-.dropdown {
-  @apply block px-4 py-2 list-disc capitalize 
-hover:text-zinc-600 hover:cursor-pointer
-  
-}
+
+/* filter */
 .bar {
   @apply flex w-full place-self-center justify-center 
-  bg-transparent rounded-3xl border-red-50 border-2 ml-8 mt-5
+  bg-transparent ml-8 mt-5
    
 }
 
@@ -68,8 +65,25 @@ hover:text-zinc-600 hover:cursor-pointer
   text-[14px] font-bold object-center 
 }
 
+.filtertitleblock {
+  @apply flex hover:-translate-y-2 justify-center
+}
+
+.filtertitle {
+  @apply hover:cursor-pointer h-fit 
+  
+}
+
+.dropdown {
+  @apply block px-4 py-2 capitalize 
+hover:text-zinc-600 hover:cursor-pointer rounded-md 
+shadow-xl
+  
+}
+
 .list {
-  @apply text-black hover:text-zinc-200 hover:text-xl
+  @apply text-black hover:text-zinc-200 hover:text-xl border-2 
+  border-gray-200 rounded-full bg-white
 }
 
 /*order */
