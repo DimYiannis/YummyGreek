@@ -124,7 +124,7 @@ html {
 }
 
 .costs {
-  @apply h-max sticky flex items-center 
+  @apply h-max sticky flex flex-col mobile:flex-row items-center 
   justify-center w-full px-4 mt-8 font-semibold 
    gap-8 mb-4
 }

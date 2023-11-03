@@ -10,7 +10,7 @@
         </div>
         
         <div class=" w-fit p-2 ">
-        <nav class="w-fit flex text-black text-2xl space-x-5
+        <nav class="w-fit flex text-black text-base tablet:text-xl space-x-5
         laptop:mr-10">
           
           <RouterLink to="/" @click="allDishes"

@@ -1,17 +1,17 @@
 <template>
 
-  <div class="h-screen  bg-transparent w-full">
-    <div class="h-fit bg-stone-200 bg-opacity-60 w-full">
+  <div class="h-screen bg-transparent w-full">
+    <div class="h-fit bg-stone-200 bg-opacity-60 w-full rounded-lg">
        <!--the item-->
-    <div class="bg-transparent w-full h-fit
+    <div class="bg-transparent w-[240px] mobile:w-screen tablet:w-full h-[500px]
       place-self-center border-solid justify-items-center
-      border-b-2 border-black rounded-md overflow-auto ">
+      border-b-2 border-green-200 rounded-lg overflow-auto ">
               
       <div class="text-center h-fit mt-10 font-semibold justify-self-center">
         <h2 class="text-xl">Shopping Cart</h2>
       </div>
 
-      <div class=" h-fit grid m-2 ">
+      <div class=" h-full grid m-2">
 
         <div v-if="chosenOrders.length === 0"
         class="text-center font-semibold text-xl 
