@@ -12,10 +12,9 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/details/:dataToReceive',
+      path: '/details/:id',
       name: 'details',
-      component: Details,
-    
+      component: () => import('../views/Details.vue')
     },
     {
       path: '/orders',
