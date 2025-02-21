@@ -5,9 +5,9 @@
       <div class="tablet:w-1/2">
         <div class="sticky top-8">
           <img 
-            :src="receivedData.image" 
-            :alt="receivedData.name"
-            class="w-full h-[500px] object-cover rounded-2xl shadow-md"
+            :src="dishData.image" 
+            :alt="dishData.name"
+            class="w-full mt-10 h-[500px] object-cover rounded-2xl shadow-md"
           >
         </div>
       </div>
@@ -16,8 +16,8 @@
       <div class="tablet:w-1/2 flex flex-col gap-6">
         <!-- Header -->
         <div>
-          <h1 class="text-3xl font-bold text-gray-900">{{ receivedData.name }}</h1>
-          <p class="mt-4 text-gray-600 leading-relaxed">{{ receivedData.description }}</p>
+          <h1 class="text-3xl font-bold text-gray-900">{{ dishData.name }}</h1>
+          <p class="mt-4 text-gray-600 leading-relaxed">{{ dishData.description }}</p>
         </div>
 
         <!-- Ingredients Section -->
@@ -25,7 +25,7 @@
           <h2 class="text-xl font-semibold text-gray-900 mb-4">Ingredients</h2>
           <ul class="grid grid-cols-2 gap-2">
             <li 
-              v-for="ingredient in receivedData.ingredients" 
+              v-for="ingredient in dishData.ingredients" 
               :key="ingredient"
               class="flex items-center gap-2 text-gray-700"
             >
@@ -40,7 +40,7 @@
           <div class="flex items-center justify-between mb-6">
             <div>
               <p class="text-sm text-gray-500">Price</p>
-              <p class="text-3xl font-bold text-gray-900">{{ receivedData.price }}</p>
+              <p class="text-3xl font-bold text-gray-900">€{{ dishData.price?.toFixed(2) }}</p>
             </div>
             <button 
               @click="addToCart"
@@ -74,39 +74,27 @@
 export default {
   data() {
     return {
-      receivedData: {},
+      dishData: {}
     };
   },
-  props: {
-    chosenDetails: {
-      type: Object,
-      required: true
-    },
-    chosenOrders: {
-      type: Object,
-      required: true
-    },
-    dish: {
-      type: Object,
-      required: true
-    },   
-  },
   created() {
-    this.receivedData = this.chosenDetails;
-    console.log('Received data:', this.receivedData);
-    console.log('Received image path:', this.receivedData.image);
-  },
-  computed: {
-    totalItems() {
-      console.log('show totalitems',this.chosenOrders);
-      return this.chosenOrders.reduce((acc, dish) => acc + dish.quantity, 0);
-    },
-    totalPrice() {
-      return this.chosenOrders.reduce((acc, dish) => acc + (dish.price * dish.quantity), 0);
-    },
-    makeOrder(dish) {
-      this.$emit('make-order', this.receivedData)
+    // Get the dish data from route query
+    const dishStr = this.$route.query.dish;
+    if (dishStr) {
+      try {
+        this.dishData = JSON.parse(dishStr);
+        console.log('Dish data loaded:', this.dishData);
+      } catch (e) {
+        console.error('Error parsing dish data:', e);
+      }
     }
   },
+  methods: {
+    addToCart() {
+      // Implement add to cart functionality
+      console.log('Adding to cart:', this.dishData);
+      // You might want to emit an event or use Vuex/Pinia here
+    }
+  }
 };
 </script>
