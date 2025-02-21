@@ -1,4 +1,3 @@
-
 @tailwind base;
 /* Firefox */
 * {
@@ -38,37 +37,40 @@ html {
 
 .navbar {
   @apply flex flex-col items-center flex-nowrap 
-  justify-between gap-5 w-full pb-20 
-  h-fit
-
+  justify-between gap-5 w-full
+  backdrop-blur-sm bg-white/30 shadow-lg
+  border-b border-white/20;
 }
 
 .headersvg {
   @apply object-bottom w-8 h-8 text-black 
+  transition-transform hover:scale-110;
 }
 
 .headerbtn {
   @apply flex justify-start w-fit font-semibold 
-  hover:bg-opacity-40 rounded-md mt-8 space-x-2 ml-6  
+  px-4 py-2 hover:bg-white/20 rounded-md mt-4
+  transition-all duration-200 space-x-2;
 }
-
 
 /* filter */
 .bar {
   @apply flex w-full place-self-center justify-center 
-  bg-transparent ml-8 mt-5
-   
+  bg-white/10 backdrop-blur-sm py-4 rounded-lg
+  shadow-lg mt-5;
 }
 
 .tooltip {
   @apply flex relative bg-transparent text-black 
-  text-[14px] font-bold object-center 
+  text-[14px] font-bold object-center
+  transition-all duration-200;
 }
 
 .filtertitleblock {
-  @apply flex justify-center px-3 rounded-xl border-2 border-white 
-  hover:cursor-pointer
-  h-fit w-fit hover:border-green-200
+  @apply flex justify-center px-4 py-2 rounded-xl
+  border-2 border-white/50 hover:border-green-400
+  hover:bg-white/20 transition-all duration-200
+  backdrop-blur-sm;
 }
 
 .filtertitle {
@@ -77,24 +79,24 @@ html {
 }
 
 .dropdown {
-  @apply block px-4 py-2 capitalize text-xs
-  hover:text-zinc-600 hover:cursor-pointer rounded-md 
-  justify-items-center grid
+  @apply absolute z-10 mt-2 w-48 rounded-md bg-white 
+  shadow-lg ring-1 ring-black ring-opacity-5 
+  focus:outline-none;
 }
 
 .list {
-  @apply text-black hover:bg-green-200 border-2 h-fit
-  border-gray-200 rounded-full bg-white px-2 w-fit
+  @apply text-gray-700 hover:bg-green-100 
+  transition-colors duration-150 py-2 px-4
+  hover:text-green-700 rounded-md w-full text-left;
 }
 
 /*order */
 .shoppings {
-  @apply  w-[240px] h-[310px] tablet:w-[300px] 
+  @apply w-[240px] h-[310px] tablet:w-[300px] 
   tablet:h-[400px] desktop:w-[400px] 
-  desktop:h-[570px] bg-white 
-  rounded-md relative z-10 justify-self-end top-14 right-8 
-  grid py-4 appearance-none  overflow-auto border-2 
-  border-[#363636]
+  desktop:h-[570px] bg-white/95
+  backdrop-blur-md rounded-lg shadow-xl
+  border border-gray-200 overflow-auto;
 }
 .chosenitems {
   @apply grid bg-transparent w-full h-full
@@ -120,7 +122,9 @@ html {
 
 .imgshop {
   @apply w-full h-full border-solid 
-  border-2  rounded-lg relative hover:shadow-xl
+  border-2 border-gray-200 rounded-lg 
+  transition-all duration-300
+  hover:shadow-xl hover:scale-105;
 }
 
 .costs {
@@ -131,16 +135,17 @@ html {
 
 .btn {
   @apply border-2 rounded-lg border-solid 
-  w-fit h-fit flex p-1 text-black 
-  hover:border-green-200 self-center 
-  text-xs tablet:text-base font-semibold 
+  px-4 py-2 text-black bg-white/80
+  hover:bg-green-100 hover:border-green-400
+  transition-all duration-200 font-semibold
+  shadow-sm hover:shadow-md;
 }
 
 /*signup form*/
 form {
-  @apply 
-  bg-white text-left h-max
-  px-[50px] border-none  w-full
+  @apply bg-white/95 backdrop-blur-md rounded-lg
+  shadow-xl p-8 border border-gray-200 w-full
+  max-w-md mx-auto;
 }
 label {
   @apply
@@ -149,10 +154,11 @@ label {
   font-semibold
 }
 input, select {
-  @apply block
-  pt-[10px] pr-[6px]
-  w-[100%] border-b-[1px] border-solid 
-  border-slate-200 outline-none text-[14px]
+  @apply block w-full px-4 py-2 mt-2
+  border border-gray-300 rounded-md
+  focus:ring-2 focus:ring-green-400
+  focus:border-transparent outline-none
+  transition-all duration-200;
 }
 
 .submit {
@@ -199,4 +205,16 @@ input, select {
 .positionexitbtn {
     @apply w-screen laptop:w-[800px] desktop:w-[1000px] 
     grid place-items-end absolute top-0 right-1
+}
+
+/* Add new styles for better visual hierarchy */
+.section-title {
+  @apply text-2xl font-bold text-gray-800 mb-6
+  border-b-2 border-green-400 pb-2 w-fit;
+}
+
+.card {
+  @apply bg-white/90 backdrop-blur-sm rounded-lg
+  shadow-md hover:shadow-xl transition-all duration-300
+  p-4 border border-gray-200;
 }
