@@ -1,61 +1,77 @@
 <template>
-  <div class="grid w-fit h-fit z-10 bg-stone-200 bg-opacity-60" >
-
-    <div class="w-full flex flex-col tablet:flex-row gap-4">
-      <div class="w-1/2 h-full self-center  ">
-
-        <div class="grid mt-5 gap-5 self-center	">
-          <div class="flex place-self-center font-semibold
-          text-xl">{{ this.receivedData.name }}</div>
-          <img :src="this.receivedData.image" 
-          class="h-full w-full rounded-3xl transition ease-in-out delay-150 
-          hover:-translate-y-1 hover:scale-90 duration-700">
+  <div class="max-w-7xl mx-auto px-4 py-8 bg-white rounded-lg shadow-lg">
+    <div class="w-full flex flex-col tablet:flex-row gap-8">
+      <!-- Left Column - Image Section -->
+      <div class="tablet:w-1/2">
+        <div class="sticky top-8">
+          <img 
+            :src="receivedData.image" 
+            :alt="receivedData.name"
+            class="w-full h-[500px] object-cover rounded-2xl shadow-md"
+          >
         </div>
       </div>
     
-      <div class="self-center gap-2 w-1/2">
+      <!-- Right Column - Details Section -->
+      <div class="tablet:w-1/2 flex flex-col gap-6">
+        <!-- Header -->
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900">{{ receivedData.name }}</h1>
+          <p class="mt-4 text-gray-600 leading-relaxed">{{ receivedData.description }}</p>
+        </div>
 
-        <div class="justify-self-center mt-16">
+        <!-- Ingredients Section -->
+        <div class="bg-stone-50 p-6 rounded-xl">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4">Ingredients</h2>
+          <ul class="grid grid-cols-2 gap-2">
+            <li 
+              v-for="ingredient in receivedData.ingredients" 
+              :key="ingredient"
+              class="flex items-center gap-2 text-gray-700"
+            >
+              <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+              {{ ingredient }}
+            </li>
+          </ul>
+        </div>
 
-          <div class="grid gap-4">
-            <p>{{ this.receivedData.description }}</p>
-            
-            <div class="grid tablet:grid-cols-2 laptop:grid-cols-3 ml-2">
-              <h1 class="font-semibold ">ingredients:</h1>
-              <ul v-for="i in this.receivedData.ingredients" 
-              :i="i" :key="i"
-              class="list-outside list-disc">
-                <li>{{ i }}</li>
-              </ul>
+        <!-- Price and Actions -->
+        <div class="mt-auto">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <p class="text-sm text-gray-500">Price</p>
+              <p class="text-3xl font-bold text-gray-900">{{ receivedData.price }}</p>
             </div>
-            
+            <button 
+              @click="addToCart"
+              class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg
+                     hover:bg-green-700 transition-colors duration-200"
+            >
+              Add to Cart
+            </button>
           </div>
 
-          <div class="mt-10 font-bold text-red-500">
-            <p>Price: {{ this.receivedData.price }}</p>
+          <div class="flex gap-4">
+            <router-link 
+              to="/" 
+              class="flex items-center justify-center px-6 py-3 border border-gray-300 
+                     rounded-lg text-gray-700 font-medium hover:bg-gray-50 
+                     transition-colors duration-200 w-full"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+              </svg>
+              Back to Menu
+            </router-link>
           </div>
-        
-          <div class="flex gap-2 mt-5 mb-2">
-
-            <router-link to="/" class="btn">Head back</router-link>
-            
-            
-          </div> 
         </div>
-      
       </div>
-  
     </div>
-    
-    
-    
   </div>
 </template>
 
 <script>
-
 export default {
-
   data() {
     return {
       receivedData: {},
@@ -63,30 +79,27 @@ export default {
   },
   props: {
     chosenDetails: {
-    type: Object,
-    required: true
+      type: Object,
+      required: true
     },
     chosenOrders: {
-    type: Object,
-    required: true
+      type: Object,
+      required: true
     },
     dish: {
       type: Object,
       required: true
     },   
-    
   },
   created() {
     this.receivedData = this.chosenDetails;
     console.log('Received data:', this.receivedData);
     console.log('Received image path:', this.receivedData.image);
-    
   },
   computed: {
     totalItems() {
       console.log('show totalitems',this.chosenOrders);
       return this.chosenOrders.reduce((acc, dish) => acc + dish.quantity, 0);
-      
     },
     totalPrice() {
       return this.chosenOrders.reduce((acc, dish) => acc + (dish.price * dish.quantity), 0);
