@@ -43,7 +43,7 @@
               <p class="text-3xl font-bold text-gray-900">€{{ dishData.price?.toFixed(2) }}</p>
             </div>
             <button 
-              @click="addToOrder(dish)"
+              @click="addToOrder"
               class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg
                      hover:bg-green-700 transition-colors duration-200"
             >
@@ -96,23 +96,8 @@ export default {
     }
   },
   methods: {
-    addToOrder(dish) {
-      console.log(dish)
-      
-      console.log(this.chosenOrders)
-      
-      const index = this.chosenOrders.findIndex(chosenOrder => chosenOrder.id === dish.id);
-        if (index !== -1) {
-        // Item already exists in order
-        this.chosenOrders[index].quantity+=1
-        } else {
-        // Item is new to the order
-        this.chosenOrders.push({
-        ...dish,
-        quantity:1
-        });
-      }
-      console.log(this.chosenOrders)
+    addToOrder() {
+      this.$emit('add-to-order', this.dishData);
     },
   }
 };
