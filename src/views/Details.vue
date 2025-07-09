@@ -43,7 +43,7 @@
               <p class="text-3xl font-bold text-gray-900">€{{ dishData.price?.toFixed(2) }}</p>
             </div>
             <button 
-              @click="addToCart"
+              @click="$emit('add-to-order', dish)"
               class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg
                      hover:bg-green-700 transition-colors duration-200"
             >
@@ -77,6 +77,12 @@ export default {
       dishData: {}
     };
   },
+  props: {
+    dish: {
+      type: Object,
+      required: true,
+    },
+  },
   created() {
     // Get the dish data from route query
     const dishStr = this.$route.query.dish;
@@ -89,12 +95,5 @@ export default {
       }
     }
   },
-  methods: {
-    addToCart() {
-      // Implement add to cart functionality
-      console.log('Adding to cart:', this.dishData);
-      // You might want to emit an event or use Vuex/Pinia here
-    }
-  }
 };
 </script>
